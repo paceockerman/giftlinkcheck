@@ -14,11 +14,11 @@ input.addEventListener("keyup", function (event) {
 
 function submitForm() {
     let link = document.getElementById("input").value;
-    const pattern = /https:\/\/discord.gift/i;
+    const pattern = /^https:\/\/discord.gift\/[A-Za-z0-9]+$/i;
     let result = pattern.test(link);
     if (result) {
         document.getElementById('result').innerHTML = 'This is a real discord gift link!'
     } else {
-        document.getElementById('result').innerHTML = 'This is a <b>scam</b>! Do not click this link.'
+        document.getElementById('result').innerHTML = 'This is likely a <b>scam</b>! It is not a gift.'
     }
 }
