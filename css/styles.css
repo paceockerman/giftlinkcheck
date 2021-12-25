@@ -67,16 +67,32 @@ body {
 }
 
 .Title {
-  margin: 0 0 var(--gutterXx) 0;
+  margin: 0 0 0 0;
   padding: 0;
   color: #fff;
   font-size: var(--fontSizeXx);
+  font-weight: 400;
+  text-align: center;
+  text-shadow: -0.1rem 0.1rem 0.2rem var(--colorPrimary800);
+}
+
+.Desc {
+  margin: 0 0 var(--gutterXx) 0;
+  padding: 0;
+  color: #fff;
   font-weight: 400;
   line-height: var(--lineHeightSm);
   text-align: center;
   text-shadow: -0.1rem 0.1rem 0.2rem var(--colorPrimary800);
 }
-
+.Foot {
+  margin: 0 0 0 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+  text-shadow: -0.1rem 0.1rem 0.2rem var(--colorPrimary800);
+}
 .Result {
   margin: 10vh 0 var(--gutterXx) 0;
   padding: 0;
@@ -155,4 +171,13 @@ body {
     transform var(--inputTransitionDuration),
     visibility 0ms,
     z-index 0ms;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
 }
