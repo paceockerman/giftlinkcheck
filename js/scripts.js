@@ -1,12 +1,7 @@
 var input = document.getElementById("input");
-
-// Execute a function when the user releases a key on the keyboard
 input.addEventListener("keyup", function (event) {
-    // Number 13 is the "Enter" key on the keyboard
     if (event.key === 'Enter') {
-        // Cancel the default action, if needed
         event.preventDefault();
-        // Trigger the button element with a click
         submitForm()
     }
 });
@@ -14,11 +9,17 @@ input.addEventListener("keyup", function (event) {
 
 function submitForm() {
     let link = document.getElementById("input").value;
-    const pattern = /^https:\/\/discord.gift\/[A-Za-z0-9]+$/i;
+    const urlpattern = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/
+    const pattern = /^https:\/\/discord.gift\/[A-Za-z0-9]{16}$/i;
+    let isUrl = urlpattern.test(link)
     let result = pattern.test(link);
-    if (result) {
-        document.getElementById('result').innerHTML = 'This is a real discord gift link!'
+    if (!isUrl) {
+        document.getElementById('result').innerHTML = 'This does not appear to be a valid link.'
     } else {
-        document.getElementById('result').innerHTML = 'This is likely a <b>scam</b>! It is not a gift.'
+        if (result) {
+            document.getElementById('result').innerHTML = 'This is a valid discord gift link.'
+        } else {
+            document.getElementById('result').innerHTML = 'This is likely a <b>scam</b>! It is not a discord gift link.'
+        }
     }
 }
